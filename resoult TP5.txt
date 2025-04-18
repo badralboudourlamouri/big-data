@@ -1,0 +1,180 @@
+1.انشاء قاعدة بيانات
+use info
+2.انشاء مجموعة produitsواضافة مستندات 
+*اضافة اول منتج
+db.produits.insertOne({
+  nom: "Macbook Pro",
+  fabriquant: "Apple",
+  prix: 11435.99,
+  options: ["Intel Core i5", "Retina Display", "Long life battery"]
+})
+*إضافة ثاني منتج
+db.produits.insertOne({
+  nom: "Macbook Air",
+  fabriquant: "Apple",
+  prix: 125794.73,
+  ultrabook: true,
+  options: ["Intel Core i7", "SSD", "Long life battery"]
+})
+ * إضافة ثالث منتج
+db.produits.insertOne({
+  nom: "Thinkpad X230",
+  fabriquant: "Lenovo",
+  prix: 114358.74,
+  ultrabook: true,
+  options: ["Intel Core i5", "SSD", "Long life battery"]
+})
+3.قراءة بيانات read
+*قراءة كل منتجات
+{}
+تظهرلي
+
+_id
+67eddfde983a8a70658a5e4b
+nom
+"Macbook Pro"
+fabriquant
+"Apple"
+prix
+11435.99
+
+options
+Array (3)
+_id
+67ede1fc983a8a70658a5e53
+nom
+"Macbook Air"
+fabriquant
+"Apple"
+prix
+125794.73
+ultrabook
+true
+
+options
+Array (3)
+_id
+67ede212983a8a70658a5e55
+nom
+"Thinkpad X230"
+fabriquant
+"Lenovo"
+prix
+114358.74
+ultrabook
+true
+
+options
+Array (3)
+
+*المنتج حسب id هنا نبحث على id خاص ب 
+{ _id: ObjectId("67ede212983a8a70658a5e55") }
+يظهرلي
+_id
+67ede212983a8a70658a5e55
+nom
+"Thinkpad X230"
+fabriquant
+"Lenovo"
+prix
+114358.74
+ultrabook
+true
+
+options
+Array (3)
+*المنتجات بسعر اعلى 13723
+{ "prix": { "$gt": 13723 } }
+
+سيظهرلي
+_id
+67ede1fc983a8a70658a5e53
+nom
+"Macbook Air"
+fabriquant
+"Apple"
+prix
+125794.73
+ultrabook
+true
+
+options
+Array (3)
+_id
+67ede212983a8a70658a5e55
+nom
+"Thinkpad X230"
+fabriquant
+"Lenovo"
+prix
+114358.74
+ultrabook
+true
+
+options
+Array (3)
+* ultrabookاول منتج
+{ "ultrabook": true }
+تظهرلي
+
+_id
+67ede1fc983a8a70658a5e53
+nom
+"Macbook Air"
+fabriquant
+"Apple"
+prix
+125794.73
+ultrabook
+true
+
+options
+Array (3)
+_id
+67ede212983a8a70658a5e55
+nom
+"Thinkpad X230"
+fabriquant
+"Lenovo"
+prix
+114358.74
+ultrabook
+true
+
+options
+Array (3)
+
+*لمنتجات التي يبدا اسمها بmacbook
+{ "nom": { "$regex": "^Macbook" } }
+تظهرلي
+_id
+67eddfde983a8a70658a5e4b
+nom
+"Macbook Pro"
+fabriquant
+"Apple"
+prix
+11435.99
+
+options
+Array (3)
+_id
+67ede1fc983a8a70658a5e53
+nom
+"Macbook Air"
+fabriquant
+"Apple"
+prix
+125794.73
+ultrabook
+true
+
+options
+Array (3)
+
+
+*حذف منتجات المصنعة  من طرف apple
+يكون يدوي بالضغط على الحذف بجانب كل منتج
+*حذف Thinkpad X230من طرف id
+يكون يدوي بالضغط على الحذف بجانب كل منتج
+
